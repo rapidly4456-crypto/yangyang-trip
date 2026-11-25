@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#E4ECEA">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>엄마·이모와 양양 1박 2일</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+/* Layout: 앱 화면처럼 연한 바탕 위에 흰 카드를 쌓는다. 넓은 화면은 일정 왼쪽, 시장 오른쪽 */
+:root{
+  --bg:#E4ECEA; --surface:#FFFFFF; --ink:#141F1E; --muted:#67736F; --hair:#ECF1EF;
+  --teal:#14585A; --mint:#D2E7E3; --mint-ink:#0F5F59; --track:#D8E2E0;
+  --coral:#F7E0D4; --coral-ink:#A2452A;
+  --shadow:0 1px 2px rgba(18,44,42,.04),0 10px 28px rgba(18,44,42,.06);
+  --font:"Plus Jakarta Sans","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B1312; --surface:#14201F; --ink:#E7EFED; --muted:#94A3A0; --hair:#1E2C2A;
+  --teal:#7FCAC1; --mint:#1A3431; --mint-ink:#9CDBD2; --track:#182523;
+  --coral:#3A2219; --coral-ink:#F2A588; --shadow:none; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B1312; --surface:#14201F; --ink:#E7EFED; --muted:#94A3A0; --hair:#1E2C2A;
+  --teal:#7FCAC1; --mint:#1A3431; --mint-ink:#9CDBD2; --track:#182523;
+  --coral:#3A2219; --coral-ink:#F2A588; --shadow:none; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.55;-webkit-text-size-adjust:100%;font-variant-numeric:tabular-nums}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit}
+h1,h2,h3,h4,p{margin:0}
+h1,h2,h3{text-wrap:balance}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.card{background:var(--surface);border-radius:20px;box-shadow:var(--shadow)}
+
+/* 표지 */
+.cover{padding-block:28px 12px}
+.cover-grid{display:grid;gap:18px}
+.cover h1{font-size:clamp(2.1rem,8.5vw,3rem);font-weight:800;letter-spacing:-.035em;line-height:1.08}
+.cover h1 span{display:block;font-weight:500;letter-spacing:-.03em;color:var(--muted)}
+.photo{position:relative;margin:0;border-radius:26px;overflow:hidden;aspect-ratio:4/5;max-width:100%;background:var(--mint);box-shadow:var(--shadow)}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
+.photo figcaption{position:absolute;left:14px;bottom:14px;right:14px;display:flex;justify-content:space-between;align-items:flex-end;gap:10px;padding:12px 16px;border-radius:16px;color:#fff;background:rgba(14,58,56,.42);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.photo figcaption b{display:block;font-size:1.35rem;font-weight:700;letter-spacing:-.02em;line-height:1.2}
+.photo figcaption small{font-size:.82rem;opacity:.85}
+.photo figcaption .n{font-size:.8rem;font-weight:600;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.22);white-space:nowrap}
+.facts{padding:4px 18px}
+.facts .r{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--hair)}
+.facts .r:last-child{border-bottom:0}
+.facts .r span{color:var(--muted);font-size:.92rem}
+.facts .r b{font-weight:700;font-size:1rem;text-align:right}
+@media (min-width:760px){
+  .cover-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1fr);align-items:end}
+  .cover-text{display:grid;gap:22px;align-content:end}
+  .photo{grid-row:span 2;max-height:560px}
+}
+@media (max-width:759px){.cover-text{display:contents}.cover h1{order:-1}}
+
+/* 탭 */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg)}
+.tabs .wrap{padding-block:10px}
+.seg{display:flex;gap:4px;padding:4px;border-radius:999px;background:var(--track)}
+.seg a{flex:1;text-align:center;text-decoration:none;font-weight:700;font-size:.92rem;padding:9px 4px;border-radius:999px;color:var(--muted)}
+.seg a.on{background:var(--surface);color:var(--teal);box-shadow:0 1px 3px rgba(18,44,42,.10)}
+a:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+
+/* 본문 */
+.main{display:grid;gap:40px;padding-block:18px 56px}
+.main > *{min-width:0}
+@media (min-width:920px){
+  .main{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:start}
+  .seg a[href="#market"]{display:none}
+  #market{position:sticky;top:calc(env(safe-area-inset-top,0px) + 66px);max-height:calc(100vh - 84px);overflow:auto;padding-bottom:12px}
+}
+section{scroll-margin-top:70px}
+.day + .day{margin-top:40px}
+.head{margin-bottom:14px}
+.head h2{font-size:1.75rem;font-weight:800;letter-spacing:-.03em}
+.head p{color:var(--muted);font-size:.92rem;margin-top:2px}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+
+/* 일정 카드 */
+.stop{display:grid;grid-template-columns:62px minmax(0,1fr);gap:14px;padding:16px 16px 16px 14px}
+.stop .t{font-family:"Plus Jakarta Sans",var(--font);font-weight:700;font-size:1.05rem;letter-spacing:-.02em;line-height:1.25}
+.stop .t small{display:block;font-weight:600;font-size:.8rem;color:var(--muted);letter-spacing:0;margin-top:2px}
+.stop h3{font-size:1.06rem;font-weight:700;letter-spacing:-.015em;line-height:1.35}
+.stop p{color:var(--muted);font-size:.93rem;margin-top:3px}
+.stop p b{color:var(--ink);font-weight:700}
+.stop.quiet{background:transparent;box-shadow:none;padding-block:10px}
+.stop.quiet h3{font-weight:600}
+.soft{background:var(--mint);box-shadow:none}
+.soft .t,.soft .label{color:var(--mint-ink)}
+.label{font-size:.78rem;font-weight:700;letter-spacing:.02em;color:var(--muted);margin-bottom:6px}
+.soft .item + .item{margin-top:12px;padding-top:12px;border-top:1px solid rgba(15,95,89,.14)}
+.soft p{color:var(--ink);opacity:.72}
+.go{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.pill{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-size:.86rem;font-weight:700;padding:7px 13px;border-radius:999px;background:var(--mint);color:var(--mint-ink);min-height:34px}
+.pill svg{width:13px;height:13px}
+.soft .pill{background:var(--surface)}
+.pill.ghost{background:transparent;box-shadow:inset 0 0 0 1.5px var(--mint)}
+.soft .pill.ghost{box-shadow:inset 0 0 0 1.5px var(--surface)}
+
+/* 시장 */
+.group + .group{margin-top:26px}
+.group .label{margin:0 4px 8px}
+.shops{display:block;padding:2px 16px}
+.shop{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 12px;padding:14px 0;border-bottom:1px solid var(--hair)}
+.shop:last-child{border-bottom:0}
+.shop h4{font-size:1rem;font-weight:700;letter-spacing:-.015em;line-height:1.35}
+.shop p{font-size:.88rem;color:var(--muted);margin-top:2px}
+.shop .side{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.until{font-size:.76rem;font-weight:700;white-space:nowrap;padding:3px 9px;border-radius:999px;background:var(--hair);color:var(--muted)}
+.until.early{background:var(--coral);color:var(--coral-ink)}
+.shop .pill{padding:5px 11px;min-height:30px;font-size:.8rem}
+.ph{grid-column:1/-1;width:100%;max-width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:14px;display:block;background:var(--hair)}
+.soft .item .ph{aspect-ratio:16/9;margin-bottom:10px}
+.shop{grid-template-columns:56px minmax(0,1fr) auto}
+.shop .th{width:56px;height:56px;border-radius:12px;object-fit:cover;display:block;background:var(--hair)}
+
+/* 동선 지도 */
+.seg-day{margin-bottom:10px}
+.seg button{flex:1;border:0;background:transparent;font:inherit;font-weight:700;font-size:.92rem;padding:9px 4px;border-radius:999px;color:var(--muted);cursor:pointer}
+.seg button.on{background:var(--surface);color:var(--teal);box-shadow:0 1px 3px rgba(18,44,42,.10)}
+.seg button:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.mapcard{padding:8px}
+.map{display:block;width:100%;height:auto;max-width:100%;border-radius:14px}
+.map .rc{fill:none;stroke:#FFFFFF;stroke-width:28;stroke-linecap:round;stroke-linejoin:round}
+.map .rl{fill:none;stroke:#14585A;stroke-width:15;stroke-linecap:round;stroke-linejoin:round}
+.map .ro{fill:none;stroke:#C9552F;stroke-width:13;stroke-dasharray:.002 .03;stroke-linecap:round;stroke-linejoin:round}
+.map .mk circle{fill:#14585A;stroke:#FFFFFF;stroke-width:8}
+.map .mk.opt circle{fill:#FFFFFF;stroke:#C9552F;stroke-width:9}
+.map .mk.home rect{fill:#C9552F;stroke:#FFFFFF;stroke-width:8}
+.map .mk.home path{fill:#FFFFFF}
+.map .n{fill:#FFFFFF;font-family:var(--font);font-weight:800;font-size:52px;text-anchor:middle}
+.map .mk.opt .n{fill:#C9552F;font-size:42px}
+.map .lb{fill:#141F1E;font-family:var(--font);font-weight:800;font-size:66px;letter-spacing:-1px;paint-order:stroke;stroke:#FFFFFF;stroke-width:18px;stroke-linejoin:round}
+.map .edge{fill:#14585A;font-family:var(--font);font-weight:800;font-size:60px;paint-order:stroke;stroke:#FFFFFF;stroke-width:16px;stroke-linejoin:round}
+.map .car{fill:#FFFFFF;stroke:#C9552F;stroke-width:10}
+.map .mk,.map .lb{transform-box:fill-box;transform-origin:center}
+/* 지도가 보이거나 날짜를 바꾸면 경로를 순서대로 그린다. 평소 상태는 완성된 지도 */
+.map.play .rl,.map.play .rc{stroke-dasharray:1 1;animation:draw .9s cubic-bezier(.4,0,.2,1) both;animation-delay:calc(var(--i) * .75s)}
+.map.play .mk{animation:pop .45s cubic-bezier(.34,1.56,.64,1) both;animation-delay:calc(var(--i) * .75s + .1s)}
+.map.play .lb{animation:fade .4s ease-out both;animation-delay:calc(var(--i) * .75s + .3s)}
+.map.play .ro{animation:fade .6s ease-out both;animation-delay:calc(var(--i) * .75s + .6s)}
+.map.play .car{animation:fade .4s ease-out both;animation-delay:3.4s}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.legend li{transition:background .2s}
+.attr{font-size:.72rem;color:var(--muted);margin:6px 4px 0}
+.legend{list-style:none;margin:8px 0 0;padding:4px 16px}
+.legend li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--hair)}
+.legend li:last-child{border-bottom:0}
+.legend b{font-weight:700;font-size:.97rem}
+.legend .until{margin-left:4px;vertical-align:1px}
+.legend .tm{color:var(--muted);font-size:.88rem;font-weight:600}
+.num{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.82rem;background:var(--teal);color:var(--surface)}
+.num.home{background:var(--coral-ink);color:var(--surface)}
+.num.home svg{width:16px;height:16px;fill:currentColor}
+.num.opt{background:transparent;color:var(--coral-ink);box-shadow:inset 0 0 0 2px var(--coral-ink)}
+.foot{color:var(--muted);font-size:.8rem;margin:18px 4px 0}
+/* 휴대폰: 시간을 제목 위로 올리고 한 줄로 쓴다 */
+body{word-break:keep-all;overflow-wrap:anywhere}
+@media (max-width:559px){
+  .stop{grid-template-columns:minmax(0,1fr);gap:8px;padding:16px}
+  .stop .t{display:flex;align-items:baseline;gap:6px;font-size:.95rem;color:var(--teal)}
+  .stop .t small{margin:0;font-size:.85rem}
+  .stop.quiet{padding:8px 4px;gap:2px}
+  .stop .ph{margin-bottom:4px}
+  .shop{grid-template-columns:56px minmax(0,1fr);align-items:start}
+  .shop .th{grid-row:1 / span 2}
+  .shop .side{grid-column:2;flex-direction:row;align-items:center;justify-content:flex-start;gap:8px;margin-top:4px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .photo img{animation:drift 22s ease-in-out infinite alternate;will-change:transform}
+  @keyframes drift{from{transform:scale(1.0) translateY(0)}to{transform:scale(1.07) translateY(-1.5%)}}
+  .photo figcaption{animation:rise .8s .2s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes rise{from{transform:translateY(14px);opacity:.0}to{transform:none;opacity:1}}
+  .seg a,.seg button{transition:background .25s,color .25s,box-shadow .25s}
+  .pill{transition:transform .15s}
+  .pill:active{transform:scale(.96)}
+}
+@media (prefers-reduced-motion:reduce){
+  .map.play *{animation:none!important}
+  .map .car{display:none}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="pin" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0a5.5 5.5 0 0 0-5.5 5.5C2.5 9.6 8 16 8 16s5.5-6.4 5.5-10.5A5.5 5.5 0 0 0 8 0Zm0 7.6a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2Z"/></symbol></svg>
+
+<header class="cover">
+  <div class="wrap cover-grid">
+    <figure class="photo">
+      <img src="assets/hero.jpg" alt="엄마와 이모">
+      <figcaption><div><small>강원 양양, 속초</small><b>11.27 금 – 11.28 토</b></div><span class="n">1박 2일</span></figcaption>
+    </figure>
+    <div class="cover-text">
+      <h1>양양 1박 2일<span>썬그라스를 챙기세요.</span></h1>
+      <div class="card facts">
+        <div class="r"><span>출발</span><b>위례더힐 10:00</b></div>
+        <div class="r"><span>숙소</span><b>클리프비치</b></div>
+        <div class="r"><span>체크인</span><b>15:00</b></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="바로가기">
+  <div class="wrap"><div class="seg">
+    <a href="#day1" class="on">1일차</a>
+    <a href="#day2">2일차</a>
+    <a href="#route">동선</a>
+    <a href="#market">시장</a>
+  </div></div>
+</nav>
+
+<div class="wrap main">
+  <div>
+    <section id="day1" class="day">
+      <div class="head"><h2>1일차</h2><p>11월 27일 금요일</p></div>
+      <ol class="list">
+        <li class="stop quiet"><div class="t">10:00</div><div>
+          <h3>위례더힐 출발</h3>
+          <p>서울양양고속도로, 양양IC로 나가기</p>
+        </div></li>
+
+        <li class="stop card"><img class="ph" src="assets/places/15074064.jpg" alt="감나무식당 송이황태해장국" loading="lazy"><div class="t">12:30<small>~14:30</small></div><div>
+          <h3>감나무식당</h3>
+          <p>송이황태해장국, 황태구이</p>
+          <p>웨이팅 있음, 도착하면 이름부터 올리기</p>
+          <p><b>주문 마감 14:30</b></p>
+          <div class="go"><a class="pill" href="https://m.place.naver.com/place/15074064/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div>
+        </div></li>
+
+        <li class="stop card soft"><div class="t">식사가 일찍 끝나면</div><div>
+          <div class="item"><img class="ph" src="assets/places/1838455849.jpg" alt="숲속의 빈터 빵과 커피, 정원 테라스" loading="lazy">
+            <h3>숲속의 빈터</h3>
+            <p>감나무식당에서 5분, 정원 있는 베이커리 카페</p>
+            <div class="go"><a class="pill" href="https://m.place.naver.com/place/1838455849/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div>
+          </div>
+          <div class="item"><img class="ph" src="assets/places/1607833031.jpg" alt="카페 달파도" loading="lazy">
+            <h3>카페 달파도</h3>
+            <p>호텔 바로 앞, 바다 보이는 카페</p>
+            <p>17:00까지</p>
+            <div class="go"><a class="pill" href="https://m.place.naver.com/place/1607833031/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div>
+          </div>
+        </div></li>
+
+        <li class="stop card"><img class="ph" src="assets/places/2013074038.jpg" alt="클리프비치 체크인" loading="lazy"><div class="t">15:00</div><div>
+          <h3>클리프비치 체크인</h3>
+          <p>짐만 두고 바로 출발</p>
+          <div class="go"><a class="pill" href="https://m.place.naver.com/place/2013074038/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div>
+        </div></li>
+
+        <li class="stop card"><img class="ph" src="assets/places/12991231.jpg" alt="낙산사 의상대와 동해" loading="lazy"><div class="t">15:35<small>~16:50</small></div><div>
+          <h3>낙산사</h3>
+          <p><b>17:00 문 닫음</b></p>
+          <p>의상대 쪽 후문 주차장에 대면 덜 걸음</p>
+          <div class="go"><a class="pill" href="https://m.place.naver.com/place/12991231/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div>
+        </div></li>
+
+        <li class="stop card"><img class="ph" src="assets/places/13345965.jpg" alt="속초관광수산시장 골목" loading="lazy"><div class="t">17:15<small>~18:45</small></div><div>
+          <h3>속초관광수산시장</h3>
+          <p>저녁은 시장에서</p>
+          <p>옹심이집, 술빵집부터 <b>(19:00 마감)</b></p>
+          <div class="go">
+            <a class="pill" href="https://m.place.naver.com/place/13345965/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a>
+            <a class="pill ghost" href="#market">먹거리 리스트</a>
+          </div>
+        </div></li>
+
+        <li class="stop card soft"><img class="ph" src="assets/places/36936808.jpg" alt="만천홍게탕" loading="lazy"><div class="t">예비</div><div>
+          <h3>만천홍게탕</h3>
+          <p>시장 음식이 별로면 18:30쯤 이동 (10분)</p>
+          <p><b>주문 마감 20:00</b></p>
+          <div class="go"><a class="pill" href="https://m.place.naver.com/place/36936808/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div>
+        </div></li>
+
+        <li class="stop quiet"><div class="t">18:45</div><div>
+          <h3>호텔로</h3>
+          <p>약 35분</p>
+        </div></li>
+      </ol>
+    </section>
+
+    <section id="day2" class="day">
+      <div class="head"><h2>2일차</h2><p>11월 28일 토요일</p></div>
+      <ol class="list">
+        <li class="stop quiet"><div class="t">07:20</div><div>
+          <h3>일출</h3>
+          <p>아침은 조식이나 술빵</p>
+        </div></li>
+
+        <li class="stop quiet"><div class="t">10:00<small>~10:30</small></div><div>
+          <h3>체크아웃</h3>
+          <p>휴휴암 들르면 10:00, 안 들르면 10:30 출발</p>
+        </div></li>
+
+        <li class="stop card soft"><img class="ph" src="assets/places/13502101.jpg" alt="휴휴암" loading="lazy"><div class="t">컨디션 괜찮으면</div><div>
+          <h3>휴휴암</h3>
+          <p><b>10:20~11:00</b></p>
+          <p>쉼터 바로 옆 바닷가 절, 계단이 많아 힘들면 패스</p>
+          <div class="go"><a class="pill" href="https://m.place.naver.com/place/13502101/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div>
+        </div></li>
+
+        <li class="stop card"><img class="ph" src="assets/places/15081250.jpg" alt="휴휴암쉼터" loading="lazy"><div class="t">11:00<small>~12:00</small></div><div>
+          <h3>휴휴암쉼터</h3>
+          <p>청국장, 맷돌순두부</p>
+          <p>1인분 주문 안 됨</p>
+          <p>젓갈은 여기서 사기</p>
+          <div class="go"><a class="pill" href="https://m.place.naver.com/place/15081250/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div>
+        </div></li>
+
+        <li class="stop quiet"><div class="t">12:00</div><div>
+          <h3>서울로</h3>
+          <p>14:40쯤 위례 도착</p>
+        </div></li>
+      </ol>
+    </section>
+
+    <section id="route" class="day">
+      <div class="head"><h2>동선</h2><p>번호 순서대로 이동</p></div>
+      <div class="seg seg-day" role="group" aria-label="날짜 선택"><button type="button" class="on" data-show="1">1일차</button><button type="button" data-show="2">2일차</button></div>
+      <div class="card mapcard"><svg class="map" viewBox="0 0 1457 2088" role="img" aria-label="양양 1박 2일 동선 지도"><image href="assets/route_map.jpg" x="0" y="0" width="1457" height="2088"/><g data-day="1"><path class="rc" pathLength="1" style="--i:0" d="M-40 1616 L-37 1604 L-35 1599 L-35 1596 L-33 1590 L-32 1586 L-30 1582 L-23 1566 L-20 1560 L-17 1555 L-10 1544 L-8 1539 L-4 1530 L-1 1525 L1 1518 L3 1512 L5 1506 L7 1502 L11 1494 L15 1486 L17 1482 L20 1478 L28 1469 L36 1459 L46 1450 L53 1445 L56 1443 L65 1438 L87 1427 L94 1424 L97 1423 L113 1415 L131 1407 L145 1400 L154 1395 L169 1384 L178 1377 L189 1367 L199 1356 L209 1341 L215 1332 L222 1318 L227 1307 L233 1292 L234 1289 L237 1283 L256 1238 L259 1234 L262 1228 L264 1224 L269 1216 L271 1213 L274 1209 L279 1202 L284 1197 L301 1175 L306 1170 L311 1163 L316 1157 L321 1151 L324 1148 L325 1145 L327 1142 L328 1139 L329 1136 L328 1131 L327 1128 L326 1126 L323 1122 L319 1120 L315 1119 L310 1116 L307 1114 L303 1113 L297 1112 L291 1109 L288 1107 L285 1102 L284 1098 L283 1095 L283 1092 L286 1089 L290 1087 L294 1084 L297 1082 L300 1080 L303 1079 L307 1078 L310 1078 L315 1078 L318 1078 L322 1079 L324 1081 L334 1086 L337 1088 L342 1091 L345 1093 L349 1095 L353 1096 L356 1096 L361 1097 L365 1096 L369 1095 L373 1094 L376 1092 L380 1090 L385 1085 L388 1083 L393 1079 L396 1077 L399 1074 L405 1070 L407 1068 L411 1066 L414 1064 L416 1068 L418 1071 L420 1075 L421 1079 L422 1082 L425 1085 L428 1087 L430 1089 L433 1092 L436 1094 L439 1098 L441 1100 L444 1103 L447 1107 L464 1126 L467 1128 L470 1128 L473 1126 L478 1122 L482 1118 L484 1120"/><path class="rl" pathLength="1" style="--i:0" d="M-40 1616 L-37 1604 L-35 1599 L-35 1596 L-33 1590 L-32 1586 L-30 1582 L-23 1566 L-20 1560 L-17 1555 L-10 1544 L-8 1539 L-4 1530 L-1 1525 L1 1518 L3 1512 L5 1506 L7 1502 L11 1494 L15 1486 L17 1482 L20 1478 L28 1469 L36 1459 L46 1450 L53 1445 L56 1443 L65 1438 L87 1427 L94 1424 L97 1423 L113 1415 L131 1407 L145 1400 L154 1395 L169 1384 L178 1377 L189 1367 L199 1356 L209 1341 L215 1332 L222 1318 L227 1307 L233 1292 L234 1289 L237 1283 L256 1238 L259 1234 L262 1228 L264 1224 L269 1216 L271 1213 L274 1209 L279 1202 L284 1197 L301 1175 L306 1170 L311 1163 L316 1157 L321 1151 L324 1148 L325 1145 L327 1142 L328 1139 L329 1136 L328 1131 L327 1128 L326 1126 L323 1122 L319 1120 L315 1119 L310 1116 L307 1114 L303 1113 L297 1112 L291 1109 L288 1107 L285 1102 L284 1098 L283 1095 L283 1092 L286 1089 L290 1087 L294 1084 L297 1082 L300 1080 L303 1079 L307 1078 L310 1078 L315 1078 L318 1078 L322 1079 L324 1081 L334 1086 L337 1088 L342 1091 L345 1093 L349 1095 L353 1096 L356 1096 L361 1097 L365 1096 L369 1095 L373 1094 L376 1092 L380 1090 L385 1085 L388 1083 L393 1079 L396 1077 L399 1074 L405 1070 L407 1068 L411 1066 L414 1064 L416 1068 L418 1071 L420 1075 L421 1079 L422 1082 L425 1085 L428 1087 L430 1089 L433 1092 L436 1094 L439 1098 L441 1100 L444 1103 L447 1107 L464 1126 L467 1128 L470 1128 L473 1126 L478 1122 L482 1118 L484 1120"/><path class="rc" pathLength="1" style="--i:1" d="M484 1120 L482 1118 L490 1110 L492 1108 L495 1106 L499 1103 L504 1101 L508 1099 L512 1099 L517 1103 L519 1105 L522 1103 L527 1099 L530 1098 L534 1099 L541 1099 L544 1097 L546 1095 L545 1090 L543 1087 L542 1083 L542 1079 L540 1074 L539 1068 L539 1064 L540 1061 L544 1058 L552 1052 L557 1050 L559 1048 L561 1045 L565 1035 L568 1030 L570 1025 L572 1021 L574 1016 L576 1013 L579 1012 L583 1011 L588 1010 L593 1008 L596 1006 L599 1005 L603 1004 L606 1003 L610 1002 L613 1000 L615 998 L620 997 L624 998 L627 997 L630 995 L637 992 L641 991 L645 991 L652 989 L656 989 L660 988 L665 987 L671 986 L677 985 L682 987 L685 989 L687 992 L689 994 L691 997 L693 1000 L695 1005 L697 1010 L698 1015 L701 1022 L703 1025 L705 1028 L707 1032 L710 1037 L716 1045 L718 1048 L722 1053 L725 1057 L727 1060 L731 1067 L733 1073 L735 1077 L738 1082 L739 1087 L740 1091 L741 1097 L743 1102 L744 1107 L746 1110 L748 1117 L751 1124 L753 1129 L755 1132 L758 1137 L759 1140 L760 1145 L761 1149 L762 1154 L763 1157 L764 1161 L771 1170 L778 1178 L783 1185 L781 1187 L784 1192 L782 1191"/><path class="rl" pathLength="1" style="--i:1" d="M484 1120 L482 1118 L490 1110 L492 1108 L495 1106 L499 1103 L504 1101 L508 1099 L512 1099 L517 1103 L519 1105 L522 1103 L527 1099 L530 1098 L534 1099 L541 1099 L544 1097 L546 1095 L545 1090 L543 1087 L542 1083 L542 1079 L540 1074 L539 1068 L539 1064 L540 1061 L544 1058 L552 1052 L557 1050 L559 1048 L561 1045 L565 1035 L568 1030 L570 1025 L572 1021 L574 1016 L576 1013 L579 1012 L583 1011 L588 1010 L593 1008 L596 1006 L599 1005 L603 1004 L606 1003 L610 1002 L613 1000 L615 998 L620 997 L624 998 L627 997 L630 995 L637 992 L641 991 L645 991 L652 989 L656 989 L660 988 L665 987 L671 986 L677 985 L682 987 L685 989 L687 992 L689 994 L691 997 L693 1000 L695 1005 L697 1010 L698 1015 L701 1022 L703 1025 L705 1028 L707 1032 L710 1037 L716 1045 L718 1048 L722 1053 L725 1057 L727 1060 L731 1067 L733 1073 L735 1077 L738 1082 L739 1087 L740 1091 L741 1097 L743 1102 L744 1107 L746 1110 L748 1117 L751 1124 L753 1129 L755 1132 L758 1137 L759 1140 L760 1145 L761 1149 L762 1154 L763 1157 L764 1161 L771 1170 L778 1178 L783 1185 L781 1187 L784 1192 L782 1191"/><path class="rc" pathLength="1" style="--i:2" d="M782 1191 L781 1187 L783 1185 L778 1178 L771 1170 L765 1163 L763 1157 L762 1154 L761 1149 L760 1145 L759 1140 L758 1137 L756 1134 L754 1131 L751 1124 L748 1117 L746 1110 L744 1107 L743 1102 L741 1097 L740 1091 L739 1087 L738 1082 L735 1077 L733 1073 L731 1067 L728 1061 L725 1057 L722 1053 L718 1048 L716 1045 L712 1039 L707 1032 L705 1028 L703 1025 L701 1022 L698 1015 L697 1010 L695 1005 L694 1002 L692 999 L689 994 L687 992 L685 990 L683 987 L680 985 L676 979 L673 973 L670 970 L668 967 L665 963 L662 960 L658 956 L654 953 L652 949 L650 946 L647 942 L643 936 L639 931 L635 925 L630 918 L628 915 L626 912 L624 909 L621 905 L618 903 L614 900 L611 898 L608 897 L604 895 L600 895 L595 894 L586 891 L555 884 L556 872 L557 867 L558 860 L559 856 L559 853 L557 848 L555 845 L550 837 L547 834 L543 829 L539 829 L534 832 L530 834 L527 835 L523 834 L519 833 L518 829 L517 825 L515 821 L513 817 L511 812 L508 808 L505 806 L502 803 L499 798 L497 794 L495 788 L494 784 L493 781 L491 778 L489 775 L486 772 L482 769 L479 767 L475 765 L470 763 L467 760 L468 753 L470 750 L471 746 L473 743 L475 740 L477 738 L480 735 L480 732 L484 727 L487 723 L486 719 L483 717"/><path class="rl" pathLength="1" style="--i:2" d="M782 1191 L781 1187 L783 1185 L778 1178 L771 1170 L765 1163 L763 1157 L762 1154 L761 1149 L760 1145 L759 1140 L758 1137 L756 1134 L754 1131 L751 1124 L748 1117 L746 1110 L744 1107 L743 1102 L741 1097 L740 1091 L739 1087 L738 1082 L735 1077 L733 1073 L731 1067 L728 1061 L725 1057 L722 1053 L718 1048 L716 1045 L712 1039 L707 1032 L705 1028 L703 1025 L701 1022 L698 1015 L697 1010 L695 1005 L694 1002 L692 999 L689 994 L687 992 L685 990 L683 987 L680 985 L676 979 L673 973 L670 970 L668 967 L665 963 L662 960 L658 956 L654 953 L652 949 L650 946 L647 942 L643 936 L639 931 L635 925 L630 918 L628 915 L626 912 L624 909 L621 905 L618 903 L614 900 L611 898 L608 897 L604 895 L600 895 L595 894 L586 891 L555 884 L556 872 L557 867 L558 860 L559 856 L559 853 L557 848 L555 845 L550 837 L547 834 L543 829 L539 829 L534 832 L530 834 L527 835 L523 834 L519 833 L518 829 L517 825 L515 821 L513 817 L511 812 L508 808 L505 806 L502 803 L499 798 L497 794 L495 788 L494 784 L493 781 L491 778 L489 775 L486 772 L482 769 L479 767 L475 765 L470 763 L467 760 L468 753 L470 750 L471 746 L473 743 L475 740 L477 738 L480 735 L480 732 L484 727 L487 723 L486 719 L483 717"/><path class="rc" pathLength="1" style="--i:3" d="M483 717 L486 719 L488 723 L486 726 L482 730 L480 733 L479 736 L476 738 L474 741 L472 745 L471 748 L469 752 L467 758 L468 762 L464 760 L460 756 L458 753 L451 744 L447 737 L445 732 L443 725 L443 720 L443 717 L444 712 L446 710 L447 706 L449 701 L450 698 L450 694 L449 689 L448 684 L447 678 L446 675 L445 671 L443 665 L441 661 L439 655 L438 652 L436 649 L433 645 L428 639 L423 633 L413 621 L411 618 L408 614 L405 608 L403 606 L399 599 L397 595 L396 593 L394 587 L390 577 L388 573 L387 570 L382 562 L378 555 L376 550 L374 547 L371 539 L369 534 L368 531 L366 527 L365 524 L365 521 L365 517 L365 512 L365 509 L366 506 L367 502 L369 499 L372 494 L375 491 L376 487 L375 483 L374 477 L372 467 L368 452 L367 446 L366 443 L366 438 L367 434 L368 430 L369 425 L369 422 L370 419 L370 415 L369 409 L368 404 L366 400 L364 397 L362 395 L358 392 L356 389 L355 386 L355 379 L355 375 L353 372 L352 369 L350 366 L349 362 L348 358 L347 354 L345 350 L341 337 L339 333 L337 329 L336 325 L334 317 L332 309 L331 305 L330 300 L329 294 L327 286 L326 282 L327 278 L328 270 L329 266 L329 263 L326 256 L324 250 L323 247 L321 242 L319 239 L318 236 L314 236 L311 236 L304 236 L301 237 L293 238 L292 233 L292 225 L292 220 L292 216 L291 211 L291 207 L291 203 L291 197 L291 194 L291 190 L291 187 L291 183 L291 180 L289 175 L287 167 L285 161 L284 155 L282 151 L281 148 L281 143 L281 139 L281 136 L282 131 L283 123 L284 118 L285 115 L278 112 L278 118 L277 122 L275 125 L271 132 L269 134 L266 133"/><path class="rl" pathLength="1" style="--i:3" d="M483 717 L486 719 L488 723 L486 726 L482 730 L480 733 L479 736 L476 738 L474 741 L472 745 L471 748 L469 752 L467 758 L468 762 L464 760 L460 756 L458 753 L451 744 L447 737 L445 732 L443 725 L443 720 L443 717 L444 712 L446 710 L447 706 L449 701 L450 698 L450 694 L449 689 L448 684 L447 678 L446 675 L445 671 L443 665 L441 661 L439 655 L438 652 L436 649 L433 645 L428 639 L423 633 L413 621 L411 618 L408 614 L405 608 L403 606 L399 599 L397 595 L396 593 L394 587 L390 577 L388 573 L387 570 L382 562 L378 555 L376 550 L374 547 L371 539 L369 534 L368 531 L366 527 L365 524 L365 521 L365 517 L365 512 L365 509 L366 506 L367 502 L369 499 L372 494 L375 491 L376 487 L375 483 L374 477 L372 467 L368 452 L367 446 L366 443 L366 438 L367 434 L368 430 L369 425 L369 422 L370 419 L370 415 L369 409 L368 404 L366 400 L364 397 L362 395 L358 392 L356 389 L355 386 L355 379 L355 375 L353 372 L352 369 L350 366 L349 362 L348 358 L347 354 L345 350 L341 337 L339 333 L337 329 L336 325 L334 317 L332 309 L331 305 L330 300 L329 294 L327 286 L326 282 L327 278 L328 270 L329 266 L329 263 L326 256 L324 250 L323 247 L321 242 L319 239 L318 236 L314 236 L311 236 L304 236 L301 237 L293 238 L292 233 L292 225 L292 220 L292 216 L291 211 L291 207 L291 203 L291 197 L291 194 L291 190 L291 187 L291 183 L291 180 L289 175 L287 167 L285 161 L284 155 L282 151 L281 148 L281 143 L281 139 L281 136 L282 131 L283 123 L284 118 L285 115 L278 112 L278 118 L277 122 L275 125 L271 132 L269 134 L266 133"/><path class="rc" pathLength="1" style="--i:4" d="M266 133 L271 134 L274 127 L277 122 L278 119 L278 112 L284 112 L285 116 L284 120 L282 131 L281 136 L281 139 L281 143 L281 147 L282 151 L284 155 L285 161 L287 167 L289 175 L291 180 L291 183 L291 187 L291 190 L291 194 L291 197 L291 203 L291 207 L291 211 L292 216 L292 220 L292 225 L292 233 L292 237 L294 238 L299 238 L304 237 L310 237 L313 237 L316 237 L319 240 L321 245 L325 254 L328 263 L328 266 L327 274 L326 278 L325 283 L326 287 L327 292 L328 296 L329 299 L330 305 L335 322 L336 325 L337 329 L338 333 L340 336 L344 348 L346 352 L347 356 L349 362 L350 366 L351 369 L352 372 L354 376 L355 379 L355 384 L356 388 L357 390 L360 393 L363 396 L365 399 L367 401 L369 409 L369 412 L370 416 L370 420 L369 425 L368 430 L367 433 L366 438 L366 441 L367 444 L367 449 L372 467 L374 477 L375 480 L376 484 L375 488 L374 492 L370 498 L368 501 L366 506 L365 509 L365 512 L365 517 L365 521 L365 524 L366 527 L367 531 L369 534 L371 539 L374 547 L376 550 L378 555 L381 560 L385 568 L387 572 L390 577 L394 587 L396 593 L397 595 L399 599 L403 604 L405 608 L408 614 L411 618 L413 621 L423 633 L427 637 L431 643 L435 647 L438 652 L439 655 L440 658 L442 663 L444 669 L446 675 L447 678 L448 683 L449 687 L449 691 L450 696 L449 699 L448 704 L446 710 L444 712 L443 717 L443 720 L443 725 L444 729 L446 734 L451 744 L458 753 L460 756 L464 760 L468 762 L475 765 L479 767 L482 769 L486 771 L489 774 L491 777 L492 780 L493 784 L495 788 L497 794 L499 798 L502 802 L505 806 L508 808 L511 812 L513 816 L514 820 L526 812 L529 812 L531 816 L534 819 L537 822 L540 826 L543 829 L546 832 L550 837 L553 842 L557 846 L558 850 L559 854 L559 857 L557 864 L556 872 L553 883 L586 891 L595 894 L600 895 L604 895 L608 897 L611 898 L614 900 L616 902 L621 905 L624 909 L626 912 L628 915 L630 918 L635 925 L639 931 L643 936 L647 942 L650 946 L652 949 L654 953 L658 956 L662 960 L665 963 L668 967 L670 969 L673 973 L676 979 L679 983 L682 987 L685 989 L687 992 L689 994 L691 997 L693 1000 L695 1005 L697 1010 L698 1015 L701 1022 L703 1025 L705 1028 L707 1032 L710 1037 L716 1045 L718 1048 L722 1053 L725 1057 L727 1060 L731 1067 L733 1073 L735 1077 L738 1082 L739 1087 L740 1091 L741 1097 L743 1102 L744 1107 L746 1110 L748 1117 L751 1124 L753 1129 L755 1132 L758 1137 L759 1140 L760 1145 L761 1149 L762 1154 L763 1157 L764 1161 L771 1170 L778 1178 L783 1185 L781 1187 L784 1192 L782 1191"/><path class="rl" pathLength="1" style="--i:4" d="M266 133 L271 134 L274 127 L277 122 L278 119 L278 112 L284 112 L285 116 L284 120 L282 131 L281 136 L281 139 L281 143 L281 147 L282 151 L284 155 L285 161 L287 167 L289 175 L291 180 L291 183 L291 187 L291 190 L291 194 L291 197 L291 203 L291 207 L291 211 L292 216 L292 220 L292 225 L292 233 L292 237 L294 238 L299 238 L304 237 L310 237 L313 237 L316 237 L319 240 L321 245 L325 254 L328 263 L328 266 L327 274 L326 278 L325 283 L326 287 L327 292 L328 296 L329 299 L330 305 L335 322 L336 325 L337 329 L338 333 L340 336 L344 348 L346 352 L347 356 L349 362 L350 366 L351 369 L352 372 L354 376 L355 379 L355 384 L356 388 L357 390 L360 393 L363 396 L365 399 L367 401 L369 409 L369 412 L370 416 L370 420 L369 425 L368 430 L367 433 L366 438 L366 441 L367 444 L367 449 L372 467 L374 477 L375 480 L376 484 L375 488 L374 492 L370 498 L368 501 L366 506 L365 509 L365 512 L365 517 L365 521 L365 524 L366 527 L367 531 L369 534 L371 539 L374 547 L376 550 L378 555 L381 560 L385 568 L387 572 L390 577 L394 587 L396 593 L397 595 L399 599 L403 604 L405 608 L408 614 L411 618 L413 621 L423 633 L427 637 L431 643 L435 647 L438 652 L439 655 L440 658 L442 663 L444 669 L446 675 L447 678 L448 683 L449 687 L449 691 L450 696 L449 699 L448 704 L446 710 L444 712 L443 717 L443 720 L443 725 L444 729 L446 734 L451 744 L458 753 L460 756 L464 760 L468 762 L475 765 L479 767 L482 769 L486 771 L489 774 L491 777 L492 780 L493 784 L495 788 L497 794 L499 798 L502 802 L505 806 L508 808 L511 812 L513 816 L514 820 L526 812 L529 812 L531 816 L534 819 L537 822 L540 826 L543 829 L546 832 L550 837 L553 842 L557 846 L558 850 L559 854 L559 857 L557 864 L556 872 L553 883 L586 891 L595 894 L600 895 L604 895 L608 897 L611 898 L614 900 L616 902 L621 905 L624 909 L626 912 L628 915 L630 918 L635 925 L639 931 L643 936 L647 942 L650 946 L652 949 L654 953 L658 956 L662 960 L665 963 L668 967 L670 969 L673 973 L676 979 L679 983 L682 987 L685 989 L687 992 L689 994 L691 997 L693 1000 L695 1005 L697 1010 L698 1015 L701 1022 L703 1025 L705 1028 L707 1032 L710 1037 L716 1045 L718 1048 L722 1053 L725 1057 L727 1060 L731 1067 L733 1073 L735 1077 L738 1082 L739 1087 L740 1091 L741 1097 L743 1102 L744 1107 L746 1110 L748 1117 L751 1124 L753 1129 L755 1132 L758 1137 L759 1140 L760 1145 L761 1149 L762 1154 L763 1157 L764 1161 L771 1170 L778 1178 L783 1185 L781 1187 L784 1192 L782 1191"/><path class="ro" pathLength="1" style="--i:4" d="M266 133 L261 135 L257 133 L253 132 L251 135 L246 141 L244 143 L240 146 L231 148 L223 150 L214 153 L211 154 L207 156 L202 160 L193 168 L191 170 L188 174 L185 177 L182 183 L175 180 L168 177 L164 175 L161 174 L160 180 L160 188 L160 194 L160 201 L161 210 L160 214 L159 215"/><text class="edge" x="30" y="1478">서울에서 →</text><g class="mk" style="--i:1"><circle cx="483" cy="1121" r="46"/><text class="n" x="483" y="1139">1</text></g><text class="lb" style="--i:1" x="417" y="1143" text-anchor="end">감나무식당</text><g class="mk opt" style="--i:1"><circle cx="550" cy="1058" r="36"/><text class="n" x="550" y="1072">2</text></g><text class="lb" style="--i:1" x="606" y="1080" text-anchor="start">숲속의 빈터</text><g class="mk home" style="--i:2"><rect x="730" y="1139" width="104" height="104" rx="30"/><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z" transform="translate(746 1154) scale(3)"/></g><text class="lb" style="--i:2" x="854" y="1213" text-anchor="start">숙소</text><g class="mk" style="--i:3"><circle cx="487" cy="707" r="46"/><text class="n" x="487" y="725">3</text></g><text class="lb" style="--i:3" x="553" y="729" text-anchor="start">낙산사</text><g class="mk" style="--i:4"><circle cx="266" cy="134" r="46"/><text class="n" x="266" y="152">4</text></g><text class="lb" style="--i:4" x="332" y="156" text-anchor="start">속초 시장</text><g class="mk opt" style="--i:4"><circle cx="158" cy="214" r="36"/><text class="n" x="158" y="228">5</text></g><text class="lb" style="--i:4" x="158" y="320" text-anchor="middle">만천홍게탕</text><circle class="car" r="20"><animateMotion dur="16s" begin="0s" repeatCount="indefinite" path="M-40 1616 L-37 1604 L-35 1599 L-35 1596 L-33 1590 L-32 1586 L-30 1582 L-23 1566 L-20 1560 L-17 1555 L-10 1544 L-8 1539 L-4 1530 L-1 1525 L1 1518 L3 1512 L5 1506 L7 1502 L11 1494 L15 1486 L17 1482 L20 1478 L28 1469 L36 1459 L46 1450 L53 1445 L56 1443 L65 1438 L87 1427 L94 1424 L97 1423 L113 1415 L131 1407 L145 1400 L154 1395 L169 1384 L178 1377 L189 1367 L199 1356 L209 1341 L215 1332 L222 1318 L227 1307 L233 1292 L234 1289 L237 1283 L256 1238 L259 1234 L262 1228 L264 1224 L269 1216 L271 1213 L274 1209 L279 1202 L284 1197 L301 1175 L306 1170 L311 1163 L316 1157 L321 1151 L324 1148 L325 1145 L327 1142 L328 1139 L329 1136 L328 1131 L327 1128 L326 1126 L323 1122 L319 1120 L315 1119 L310 1116 L307 1114 L303 1113 L297 1112 L291 1109 L288 1107 L285 1102 L284 1098 L283 1095 L283 1092 L286 1089 L290 1087 L294 1084 L297 1082 L300 1080 L303 1079 L307 1078 L310 1078 L315 1078 L318 1078 L322 1079 L324 1081 L334 1086 L337 1088 L342 1091 L345 1093 L349 1095 L353 1096 L356 1096 L361 1097 L365 1096 L369 1095 L373 1094 L376 1092 L380 1090 L385 1085 L388 1083 L393 1079 L396 1077 L399 1074 L405 1070 L407 1068 L411 1066 L414 1064 L416 1068 L418 1071 L420 1075 L421 1079 L422 1082 L425 1085 L428 1087 L430 1089 L433 1092 L436 1094 L439 1098 L441 1100 L444 1103 L447 1107 L464 1126 L467 1128 L470 1128 L473 1126 L478 1122 L482 1118 L484 1120 L484 1120 L482 1118 L490 1110 L492 1108 L495 1106 L499 1103 L504 1101 L508 1099 L512 1099 L517 1103 L519 1105 L522 1103 L527 1099 L530 1098 L534 1099 L541 1099 L544 1097 L546 1095 L545 1090 L543 1087 L542 1083 L542 1079 L540 1074 L539 1068 L539 1064 L540 1061 L544 1058 L552 1052 L557 1050 L559 1048 L561 1045 L565 1035 L568 1030 L570 1025 L572 1021 L574 1016 L576 1013 L579 1012 L583 1011 L588 1010 L593 1008 L596 1006 L599 1005 L603 1004 L606 1003 L610 1002 L613 1000 L615 998 L620 997 L624 998 L627 997 L630 995 L637 992 L641 991 L645 991 L652 989 L656 989 L660 988 L665 987 L671 986 L677 985 L682 987 L685 989 L687 992 L689 994 L691 997 L693 1000 L695 1005 L697 1010 L698 1015 L701 1022 L703 1025 L705 1028 L707 1032 L710 1037 L716 1045 L718 1048 L722 1053 L725 1057 L727 1060 L731 1067 L733 1073 L735 1077 L738 1082 L739 1087 L740 1091 L741 1097 L743 1102 L744 1107 L746 1110 L748 1117 L751 1124 L753 1129 L755 1132 L758 1137 L759 1140 L760 1145 L761 1149 L762 1154 L763 1157 L764 1161 L771 1170 L778 1178 L783 1185 L781 1187 L784 1192 L782 1191 L782 1191 L781 1187 L783 1185 L778 1178 L771 1170 L765 1163 L763 1157 L762 1154 L761 1149 L760 1145 L759 1140 L758 1137 L756 1134 L754 1131 L751 1124 L748 1117 L746 1110 L744 1107 L743 1102 L741 1097 L740 1091 L739 1087 L738 1082 L735 1077 L733 1073 L731 1067 L728 1061 L725 1057 L722 1053 L718 1048 L716 1045 L712 1039 L707 1032 L705 1028 L703 1025 L701 1022 L698 1015 L697 1010 L695 1005 L694 1002 L692 999 L689 994 L687 992 L685 990 L683 987 L680 985 L676 979 L673 973 L670 970 L668 967 L665 963 L662 960 L658 956 L654 953 L652 949 L650 946 L647 942 L643 936 L639 931 L635 925 L630 918 L628 915 L626 912 L624 909 L621 905 L618 903 L614 900 L611 898 L608 897 L604 895 L600 895 L595 894 L586 891 L555 884 L556 872 L557 867 L558 860 L559 856 L559 853 L557 848 L555 845 L550 837 L547 834 L543 829 L539 829 L534 832 L530 834 L527 835 L523 834 L519 833 L518 829 L517 825 L515 821 L513 817 L511 812 L508 808 L505 806 L502 803 L499 798 L497 794 L495 788 L494 784 L493 781 L491 778 L489 775 L486 772 L482 769 L479 767 L475 765 L470 763 L467 760 L468 753 L470 750 L471 746 L473 743 L475 740 L477 738 L480 735 L480 732 L484 727 L487 723 L486 719 L483 717 L483 717 L486 719 L488 723 L486 726 L482 730 L480 733 L479 736 L476 738 L474 741 L472 745 L471 748 L469 752 L467 758 L468 762 L464 760 L460 756 L458 753 L451 744 L447 737 L445 732 L443 725 L443 720 L443 717 L444 712 L446 710 L447 706 L449 701 L450 698 L450 694 L449 689 L448 684 L447 678 L446 675 L445 671 L443 665 L441 661 L439 655 L438 652 L436 649 L433 645 L428 639 L423 633 L413 621 L411 618 L408 614 L405 608 L403 606 L399 599 L397 595 L396 593 L394 587 L390 577 L388 573 L387 570 L382 562 L378 555 L376 550 L374 547 L371 539 L369 534 L368 531 L366 527 L365 524 L365 521 L365 517 L365 512 L365 509 L366 506 L367 502 L369 499 L372 494 L375 491 L376 487 L375 483 L374 477 L372 467 L368 452 L367 446 L366 443 L366 438 L367 434 L368 430 L369 425 L369 422 L370 419 L370 415 L369 409 L368 404 L366 400 L364 397 L362 395 L358 392 L356 389 L355 386 L355 379 L355 375 L353 372 L352 369 L350 366 L349 362 L348 358 L347 354 L345 350 L341 337 L339 333 L337 329 L336 325 L334 317 L332 309 L331 305 L330 300 L329 294 L327 286 L326 282 L327 278 L328 270 L329 266 L329 263 L326 256 L324 250 L323 247 L321 242 L319 239 L318 236 L314 236 L311 236 L304 236 L301 237 L293 238 L292 233 L292 225 L292 220 L292 216 L291 211 L291 207 L291 203 L291 197 L291 194 L291 190 L291 187 L291 183 L291 180 L289 175 L287 167 L285 161 L284 155 L282 151 L281 148 L281 143 L281 139 L281 136 L282 131 L283 123 L284 118 L285 115 L278 112 L278 118 L277 122 L275 125 L271 132 L269 134 L266 133 L266 133 L271 134 L274 127 L277 122 L278 119 L278 112 L284 112 L285 116 L284 120 L282 131 L281 136 L281 139 L281 143 L281 147 L282 151 L284 155 L285 161 L287 167 L289 175 L291 180 L291 183 L291 187 L291 190 L291 194 L291 197 L291 203 L291 207 L291 211 L292 216 L292 220 L292 225 L292 233 L292 237 L294 238 L299 238 L304 237 L310 237 L313 237 L316 237 L319 240 L321 245 L325 254 L328 263 L328 266 L327 274 L326 278 L325 283 L326 287 L327 292 L328 296 L329 299 L330 305 L335 322 L336 325 L337 329 L338 333 L340 336 L344 348 L346 352 L347 356 L349 362 L350 366 L351 369 L352 372 L354 376 L355 379 L355 384 L356 388 L357 390 L360 393 L363 396 L365 399 L367 401 L369 409 L369 412 L370 416 L370 420 L369 425 L368 430 L367 433 L366 438 L366 441 L367 444 L367 449 L372 467 L374 477 L375 480 L376 484 L375 488 L374 492 L370 498 L368 501 L366 506 L365 509 L365 512 L365 517 L365 521 L365 524 L366 527 L367 531 L369 534 L371 539 L374 547 L376 550 L378 555 L381 560 L385 568 L387 572 L390 577 L394 587 L396 593 L397 595 L399 599 L403 604 L405 608 L408 614 L411 618 L413 621 L423 633 L427 637 L431 643 L435 647 L438 652 L439 655 L440 658 L442 663 L444 669 L446 675 L447 678 L448 683 L449 687 L449 691 L450 696 L449 699 L448 704 L446 710 L444 712 L443 717 L443 720 L443 725 L444 729 L446 734 L451 744 L458 753 L460 756 L464 760 L468 762 L475 765 L479 767 L482 769 L486 771 L489 774 L491 777 L492 780 L493 784 L495 788 L497 794 L499 798 L502 802 L505 806 L508 808 L511 812 L513 816 L514 820 L526 812 L529 812 L531 816 L534 819 L537 822 L540 826 L543 829 L546 832 L550 837 L553 842 L557 846 L558 850 L559 854 L559 857 L557 864 L556 872 L553 883 L586 891 L595 894 L600 895 L604 895 L608 897 L611 898 L614 900 L616 902 L621 905 L624 909 L626 912 L628 915 L630 918 L635 925 L639 931 L643 936 L647 942 L650 946 L652 949 L654 953 L658 956 L662 960 L665 963 L668 967 L670 969 L673 973 L676 979 L679 983 L682 987 L685 989 L687 992 L689 994 L691 997 L693 1000 L695 1005 L697 1010 L698 1015 L701 1022 L703 1025 L705 1028 L707 1032 L710 1037 L716 1045 L718 1048 L722 1053 L725 1057 L727 1060 L731 1067 L733 1073 L735 1077 L738 1082 L739 1087 L740 1091 L741 1097 L743 1102 L744 1107 L746 1110 L748 1117 L751 1124 L753 1129 L755 1132 L758 1137 L759 1140 L760 1145 L761 1149 L762 1154 L763 1157 L764 1161 L771 1170 L778 1178 L783 1185 L781 1187 L784 1192 L782 1191"/></circle></g><g data-day="2" hidden><path class="rc" pathLength="1" style="--i:0" d="M782 1191 L781 1187 L783 1185 L786 1187 L788 1191 L790 1195 L793 1199 L795 1202 L798 1205 L800 1208 L800 1212 L798 1215 L797 1218 L796 1222 L797 1225 L799 1228 L801 1230 L803 1234 L805 1240 L812 1255 L812 1259 L812 1262 L813 1267 L816 1272 L818 1275 L821 1278 L823 1285 L825 1289 L826 1294 L828 1297 L830 1299 L835 1303 L841 1309 L847 1315 L850 1318 L856 1324 L859 1327 L861 1330 L863 1334 L866 1340 L868 1343 L870 1347 L873 1350 L876 1353 L880 1357 L885 1361 L889 1365 L893 1366 L899 1369 L902 1371 L906 1375 L907 1377 L905 1379 L909 1383 L913 1387 L916 1389 L923 1396 L928 1400 L935 1407 L939 1410 L973 1445 L977 1449 L980 1451 L983 1454 L989 1457 L994 1461 L998 1463 L1001 1466 L1004 1468 L1006 1471 L1008 1473 L1012 1477 L1014 1480 L1017 1483 L1020 1486 L1023 1490 L1025 1493 L1027 1497 L1031 1501 L1034 1505 L1039 1512 L1043 1518 L1045 1523 L1046 1526 L1046 1531 L1046 1534 L1046 1538 L1046 1542 L1046 1545 L1047 1548 L1050 1552 L1053 1555 L1056 1558 L1060 1561 L1065 1565 L1068 1568 L1070 1572 L1072 1576 L1073 1581 L1075 1591 L1076 1596 L1077 1601 L1079 1603 L1083 1608 L1089 1612 L1095 1617 L1099 1619 L1106 1624 L1112 1629 L1114 1632 L1117 1636 L1120 1642 L1122 1645 L1124 1652 L1125 1656 L1128 1661 L1129 1665 L1131 1668 L1133 1671 L1137 1677 L1142 1684 L1144 1688 L1150 1700 L1154 1706 L1157 1713 L1160 1716 L1163 1719 L1168 1722 L1172 1723 L1176 1726 L1180 1729 L1182 1732 L1185 1738 L1190 1747 L1197 1760 L1201 1764 L1205 1768 L1213 1772 L1217 1773 L1220 1775 L1225 1779 L1228 1782 L1230 1785 L1234 1796 L1236 1801 L1237 1805 L1238 1808 L1240 1811 L1241 1814 L1242 1818 L1243 1821 L1243 1825 L1244 1833 L1244 1838 L1244 1842 L1244 1848 L1244 1852 L1243 1855 L1242 1858 L1241 1861 L1239 1866 L1237 1870 L1235 1873 L1235 1877 L1235 1880 L1235 1883 L1236 1886 L1238 1889 L1240 1892 L1242 1894 L1245 1896 L1249 1898 L1252 1898 L1257 1899 L1262 1899 L1265 1899 L1269 1900 L1272 1902 L1275 1905 L1277 1907 L1279 1911 L1281 1914 L1282 1919 L1284 1923 L1285 1926 L1286 1929 L1287 1932"/><path class="rl" pathLength="1" style="--i:0" d="M782 1191 L781 1187 L783 1185 L786 1187 L788 1191 L790 1195 L793 1199 L795 1202 L798 1205 L800 1208 L800 1212 L798 1215 L797 1218 L796 1222 L797 1225 L799 1228 L801 1230 L803 1234 L805 1240 L812 1255 L812 1259 L812 1262 L813 1267 L816 1272 L818 1275 L821 1278 L823 1285 L825 1289 L826 1294 L828 1297 L830 1299 L835 1303 L841 1309 L847 1315 L850 1318 L856 1324 L859 1327 L861 1330 L863 1334 L866 1340 L868 1343 L870 1347 L873 1350 L876 1353 L880 1357 L885 1361 L889 1365 L893 1366 L899 1369 L902 1371 L906 1375 L907 1377 L905 1379 L909 1383 L913 1387 L916 1389 L923 1396 L928 1400 L935 1407 L939 1410 L973 1445 L977 1449 L980 1451 L983 1454 L989 1457 L994 1461 L998 1463 L1001 1466 L1004 1468 L1006 1471 L1008 1473 L1012 1477 L1014 1480 L1017 1483 L1020 1486 L1023 1490 L1025 1493 L1027 1497 L1031 1501 L1034 1505 L1039 1512 L1043 1518 L1045 1523 L1046 1526 L1046 1531 L1046 1534 L1046 1538 L1046 1542 L1046 1545 L1047 1548 L1050 1552 L1053 1555 L1056 1558 L1060 1561 L1065 1565 L1068 1568 L1070 1572 L1072 1576 L1073 1581 L1075 1591 L1076 1596 L1077 1601 L1079 1603 L1083 1608 L1089 1612 L1095 1617 L1099 1619 L1106 1624 L1112 1629 L1114 1632 L1117 1636 L1120 1642 L1122 1645 L1124 1652 L1125 1656 L1128 1661 L1129 1665 L1131 1668 L1133 1671 L1137 1677 L1142 1684 L1144 1688 L1150 1700 L1154 1706 L1157 1713 L1160 1716 L1163 1719 L1168 1722 L1172 1723 L1176 1726 L1180 1729 L1182 1732 L1185 1738 L1190 1747 L1197 1760 L1201 1764 L1205 1768 L1213 1772 L1217 1773 L1220 1775 L1225 1779 L1228 1782 L1230 1785 L1234 1796 L1236 1801 L1237 1805 L1238 1808 L1240 1811 L1241 1814 L1242 1818 L1243 1821 L1243 1825 L1244 1833 L1244 1838 L1244 1842 L1244 1848 L1244 1852 L1243 1855 L1242 1858 L1241 1861 L1239 1866 L1237 1870 L1235 1873 L1235 1877 L1235 1880 L1235 1883 L1236 1886 L1238 1889 L1240 1892 L1242 1894 L1245 1896 L1249 1898 L1252 1898 L1257 1899 L1262 1899 L1265 1899 L1269 1900 L1272 1902 L1275 1905 L1277 1907 L1279 1911 L1281 1914 L1282 1919 L1284 1923 L1285 1926 L1286 1929 L1287 1932"/><path class="rc" pathLength="1" style="--i:1" d="M1287 1932 L1289 1937 L1291 1943 L1286 1946 L1291 1943 L1289 1935 L1288 1932 L1287 1929 L1286 1926 L1283 1920 L1282 1916 L1280 1912 L1279 1908 L1277 1906 L1274 1903 L1272 1901 L1268 1900 L1265 1899 L1262 1898 L1256 1898 L1252 1898 L1249 1897 L1245 1895 L1242 1893 L1240 1891 L1238 1888 L1236 1885 L1235 1882 L1235 1879 L1235 1875 L1236 1872 L1238 1869 L1240 1865 L1242 1861 L1244 1857 L1244 1854 L1245 1850 L1245 1847 L1244 1843 L1244 1840 L1244 1832 L1244 1828 L1244 1824 L1243 1820 L1242 1816 L1241 1813 L1240 1810 L1238 1806 L1237 1801 L1235 1798 L1230 1786 L1228 1782 L1225 1779 L1220 1775 L1217 1773 L1213 1772 L1207 1769 L1202 1766 L1199 1762 L1190 1747 L1185 1738 L1182 1733 L1180 1729 L1176 1726 L1172 1724 L1168 1722 L1165 1720 L1161 1718 L1159 1714 L1155 1708 L1150 1700 L1144 1688 L1142 1684 L1138 1678 L1133 1671 L1131 1668 L1129 1665 L1128 1661 L1125 1656 L1124 1652 L1123 1648 L1120 1642 L1118 1638 L1116 1634 L1113 1630 L1107 1625 L1099 1619 L1095 1617 L1089 1612 L1085 1609 L1081 1606 L1078 1602 L1076 1598 L1075 1593 L1073 1581 L1072 1576 L1070 1572 L1068 1568 L1065 1565 L1060 1561 L1056 1558 L1053 1556 L1050 1552 L1048 1549 L1047 1546 L1046 1542 L1046 1538 L1046 1534 L1046 1531 L1046 1526 L1045 1523 L1043 1518 L1039 1512 L1035 1508 L1031 1501 L1029 1498 L1025 1494 L1023 1490 L1020 1486 L1017 1483 L1014 1480 L1012 1477 L1009 1474 L1006 1471 L1004 1468 L1001 1466 L998 1463 L994 1461 L989 1457 L983 1454 L980 1451 L977 1449 L973 1445 L940 1412 L935 1407 L928 1400 L923 1396 L918 1390 L906 1379 L904 1377 L901 1373 L896 1369 L894 1368 L888 1367 L884 1367 L879 1368 L874 1371 L871 1373 L865 1377 L861 1380 L856 1383 L852 1385 L847 1386 L844 1387 L840 1387 L836 1386 L817 1383 L808 1381 L800 1380 L793 1378 L788 1378 L784 1376 L780 1375 L778 1374 L773 1371 L769 1369 L765 1367 L762 1366 L758 1365 L754 1364 L749 1362 L745 1359 L742 1356 L740 1353 L737 1347 L733 1341 L732 1339 L729 1335 L726 1332 L723 1329 L718 1327 L714 1325 L710 1324 L683 1316 L671 1313 L647 1306 L644 1305 L639 1303 L636 1300 L633 1297 L631 1293 L630 1290 L629 1281 L628 1276 L627 1271 L626 1267 L625 1263 L623 1261 L621 1258 L619 1256 L615 1254 L604 1248 L600 1246 L587 1238 L583 1235 L580 1233 L577 1229 L576 1225 L575 1222 L575 1219 L575 1214 L575 1210 L575 1196 L576 1188 L576 1183 L575 1179 L575 1174 L574 1170 L572 1165 L571 1161 L567 1153 L563 1147 L560 1142 L558 1140 L556 1137 L551 1133 L547 1129 L544 1125 L540 1119 L537 1116 L534 1114 L528 1109 L524 1106 L521 1104 L518 1104 L514 1100 L511 1099 L506 1100 L501 1102 L497 1104 L492 1108 L490 1110 L484 1116 L479 1121 L474 1125 L472 1127 L469 1128 L466 1127 L449 1109 L444 1103 L441 1100 L439 1098 L437 1095 L434 1093 L432 1091 L428 1087 L425 1085 L422 1082 L421 1079 L420 1075 L418 1071 L416 1068 L414 1064 L408 1067 L403 1071 L400 1073 L395 1077 L392 1079 L388 1083 L383 1087 L380 1089 L377 1091 L373 1093 L370 1095 L366 1096 L363 1096 L358 1096 L354 1096 L351 1095 L347 1093 L342 1090 L335 1086 L328 1082 L325 1080 L321 1079 L317 1078 L314 1077 L310 1077 L307 1077 L303 1078 L300 1080 L297 1081 L293 1083 L288 1086 L280 1090 L276 1092 L273 1094 L270 1094 L267 1092 L268 1089 L271 1087 L274 1087 L277 1090 L280 1096 L283 1100 L285 1104 L287 1106 L290 1109 L293 1111 L296 1112 L300 1114 L306 1116 L309 1118 L314 1119 L319 1121 L322 1123 L324 1125 L327 1128 L328 1131 L328 1134 L328 1139 L327 1142 L325 1145 L323 1148 L320 1150 L313 1160 L309 1164 L306 1168 L295 1181 L278 1202 L275 1205 L273 1208 L271 1211 L262 1224 L256 1235 L235 1281 L232 1290 L224 1309 L212 1332 L209 1336 L204 1345 L193 1359 L180 1372 L168 1383 L155 1392 L143 1399 L132 1404 L115 1412 L97 1420 L94 1422 L86 1424 L63 1436 L53 1442 L47 1447 L37 1455 L30 1462 L23 1471 L17 1478 L12 1486 L6 1500 L4 1504 L2 1509 L-1 1518 L-2 1522 L-4 1527 L-7 1534 L-11 1541 L-17 1552 L-21 1559 L-24 1565 L-29 1576 L-31 1581 L-34 1589 L-36 1597 L-38 1604 L-41 1615"/><path class="rl" pathLength="1" style="--i:1" d="M1287 1932 L1289 1937 L1291 1943 L1286 1946 L1291 1943 L1289 1935 L1288 1932 L1287 1929 L1286 1926 L1283 1920 L1282 1916 L1280 1912 L1279 1908 L1277 1906 L1274 1903 L1272 1901 L1268 1900 L1265 1899 L1262 1898 L1256 1898 L1252 1898 L1249 1897 L1245 1895 L1242 1893 L1240 1891 L1238 1888 L1236 1885 L1235 1882 L1235 1879 L1235 1875 L1236 1872 L1238 1869 L1240 1865 L1242 1861 L1244 1857 L1244 1854 L1245 1850 L1245 1847 L1244 1843 L1244 1840 L1244 1832 L1244 1828 L1244 1824 L1243 1820 L1242 1816 L1241 1813 L1240 1810 L1238 1806 L1237 1801 L1235 1798 L1230 1786 L1228 1782 L1225 1779 L1220 1775 L1217 1773 L1213 1772 L1207 1769 L1202 1766 L1199 1762 L1190 1747 L1185 1738 L1182 1733 L1180 1729 L1176 1726 L1172 1724 L1168 1722 L1165 1720 L1161 1718 L1159 1714 L1155 1708 L1150 1700 L1144 1688 L1142 1684 L1138 1678 L1133 1671 L1131 1668 L1129 1665 L1128 1661 L1125 1656 L1124 1652 L1123 1648 L1120 1642 L1118 1638 L1116 1634 L1113 1630 L1107 1625 L1099 1619 L1095 1617 L1089 1612 L1085 1609 L1081 1606 L1078 1602 L1076 1598 L1075 1593 L1073 1581 L1072 1576 L1070 1572 L1068 1568 L1065 1565 L1060 1561 L1056 1558 L1053 1556 L1050 1552 L1048 1549 L1047 1546 L1046 1542 L1046 1538 L1046 1534 L1046 1531 L1046 1526 L1045 1523 L1043 1518 L1039 1512 L1035 1508 L1031 1501 L1029 1498 L1025 1494 L1023 1490 L1020 1486 L1017 1483 L1014 1480 L1012 1477 L1009 1474 L1006 1471 L1004 1468 L1001 1466 L998 1463 L994 1461 L989 1457 L983 1454 L980 1451 L977 1449 L973 1445 L940 1412 L935 1407 L928 1400 L923 1396 L918 1390 L906 1379 L904 1377 L901 1373 L896 1369 L894 1368 L888 1367 L884 1367 L879 1368 L874 1371 L871 1373 L865 1377 L861 1380 L856 1383 L852 1385 L847 1386 L844 1387 L840 1387 L836 1386 L817 1383 L808 1381 L800 1380 L793 1378 L788 1378 L784 1376 L780 1375 L778 1374 L773 1371 L769 1369 L765 1367 L762 1366 L758 1365 L754 1364 L749 1362 L745 1359 L742 1356 L740 1353 L737 1347 L733 1341 L732 1339 L729 1335 L726 1332 L723 1329 L718 1327 L714 1325 L710 1324 L683 1316 L671 1313 L647 1306 L644 1305 L639 1303 L636 1300 L633 1297 L631 1293 L630 1290 L629 1281 L628 1276 L627 1271 L626 1267 L625 1263 L623 1261 L621 1258 L619 1256 L615 1254 L604 1248 L600 1246 L587 1238 L583 1235 L580 1233 L577 1229 L576 1225 L575 1222 L575 1219 L575 1214 L575 1210 L575 1196 L576 1188 L576 1183 L575 1179 L575 1174 L574 1170 L572 1165 L571 1161 L567 1153 L563 1147 L560 1142 L558 1140 L556 1137 L551 1133 L547 1129 L544 1125 L540 1119 L537 1116 L534 1114 L528 1109 L524 1106 L521 1104 L518 1104 L514 1100 L511 1099 L506 1100 L501 1102 L497 1104 L492 1108 L490 1110 L484 1116 L479 1121 L474 1125 L472 1127 L469 1128 L466 1127 L449 1109 L444 1103 L441 1100 L439 1098 L437 1095 L434 1093 L432 1091 L428 1087 L425 1085 L422 1082 L421 1079 L420 1075 L418 1071 L416 1068 L414 1064 L408 1067 L403 1071 L400 1073 L395 1077 L392 1079 L388 1083 L383 1087 L380 1089 L377 1091 L373 1093 L370 1095 L366 1096 L363 1096 L358 1096 L354 1096 L351 1095 L347 1093 L342 1090 L335 1086 L328 1082 L325 1080 L321 1079 L317 1078 L314 1077 L310 1077 L307 1077 L303 1078 L300 1080 L297 1081 L293 1083 L288 1086 L280 1090 L276 1092 L273 1094 L270 1094 L267 1092 L268 1089 L271 1087 L274 1087 L277 1090 L280 1096 L283 1100 L285 1104 L287 1106 L290 1109 L293 1111 L296 1112 L300 1114 L306 1116 L309 1118 L314 1119 L319 1121 L322 1123 L324 1125 L327 1128 L328 1131 L328 1134 L328 1139 L327 1142 L325 1145 L323 1148 L320 1150 L313 1160 L309 1164 L306 1168 L295 1181 L278 1202 L275 1205 L273 1208 L271 1211 L262 1224 L256 1235 L235 1281 L232 1290 L224 1309 L212 1332 L209 1336 L204 1345 L193 1359 L180 1372 L168 1383 L155 1392 L143 1399 L132 1404 L115 1412 L97 1420 L94 1422 L86 1424 L63 1436 L53 1442 L47 1447 L37 1455 L30 1462 L23 1471 L17 1478 L12 1486 L6 1500 L4 1504 L2 1509 L-1 1518 L-2 1522 L-4 1527 L-7 1534 L-11 1541 L-17 1552 L-21 1559 L-24 1565 L-29 1576 L-31 1581 L-34 1589 L-36 1597 L-38 1604 L-41 1615"/><text class="edge" x="30" y="1469">← 서울로</text><g class="mk home" style="--i:0"><rect x="730" y="1139" width="104" height="104" rx="30"/><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z" transform="translate(746 1154) scale(3)"/></g><text class="lb" style="--i:0" x="854" y="1213" text-anchor="start">숙소</text><g class="mk" style="--i:1"><circle cx="1285" cy="1932" r="46"/><text class="n" x="1285" y="1950">1</text></g><text class="lb" style="--i:1" x="1219" y="1954" text-anchor="end">휴휴암쉼터</text><circle class="car" r="20"><animateMotion dur="10s" begin="0s" repeatCount="indefinite" path="M782 1191 L781 1187 L783 1185 L786 1187 L788 1191 L790 1195 L793 1199 L795 1202 L798 1205 L800 1208 L800 1212 L798 1215 L797 1218 L796 1222 L797 1225 L799 1228 L801 1230 L803 1234 L805 1240 L812 1255 L812 1259 L812 1262 L813 1267 L816 1272 L818 1275 L821 1278 L823 1285 L825 1289 L826 1294 L828 1297 L830 1299 L835 1303 L841 1309 L847 1315 L850 1318 L856 1324 L859 1327 L861 1330 L863 1334 L866 1340 L868 1343 L870 1347 L873 1350 L876 1353 L880 1357 L885 1361 L889 1365 L893 1366 L899 1369 L902 1371 L906 1375 L907 1377 L905 1379 L909 1383 L913 1387 L916 1389 L923 1396 L928 1400 L935 1407 L939 1410 L973 1445 L977 1449 L980 1451 L983 1454 L989 1457 L994 1461 L998 1463 L1001 1466 L1004 1468 L1006 1471 L1008 1473 L1012 1477 L1014 1480 L1017 1483 L1020 1486 L1023 1490 L1025 1493 L1027 1497 L1031 1501 L1034 1505 L1039 1512 L1043 1518 L1045 1523 L1046 1526 L1046 1531 L1046 1534 L1046 1538 L1046 1542 L1046 1545 L1047 1548 L1050 1552 L1053 1555 L1056 1558 L1060 1561 L1065 1565 L1068 1568 L1070 1572 L1072 1576 L1073 1581 L1075 1591 L1076 1596 L1077 1601 L1079 1603 L1083 1608 L1089 1612 L1095 1617 L1099 1619 L1106 1624 L1112 1629 L1114 1632 L1117 1636 L1120 1642 L1122 1645 L1124 1652 L1125 1656 L1128 1661 L1129 1665 L1131 1668 L1133 1671 L1137 1677 L1142 1684 L1144 1688 L1150 1700 L1154 1706 L1157 1713 L1160 1716 L1163 1719 L1168 1722 L1172 1723 L1176 1726 L1180 1729 L1182 1732 L1185 1738 L1190 1747 L1197 1760 L1201 1764 L1205 1768 L1213 1772 L1217 1773 L1220 1775 L1225 1779 L1228 1782 L1230 1785 L1234 1796 L1236 1801 L1237 1805 L1238 1808 L1240 1811 L1241 1814 L1242 1818 L1243 1821 L1243 1825 L1244 1833 L1244 1838 L1244 1842 L1244 1848 L1244 1852 L1243 1855 L1242 1858 L1241 1861 L1239 1866 L1237 1870 L1235 1873 L1235 1877 L1235 1880 L1235 1883 L1236 1886 L1238 1889 L1240 1892 L1242 1894 L1245 1896 L1249 1898 L1252 1898 L1257 1899 L1262 1899 L1265 1899 L1269 1900 L1272 1902 L1275 1905 L1277 1907 L1279 1911 L1281 1914 L1282 1919 L1284 1923 L1285 1926 L1286 1929 L1287 1932 L1287 1932 L1289 1937 L1291 1943 L1286 1946 L1291 1943 L1289 1935 L1288 1932 L1287 1929 L1286 1926 L1283 1920 L1282 1916 L1280 1912 L1279 1908 L1277 1906 L1274 1903 L1272 1901 L1268 1900 L1265 1899 L1262 1898 L1256 1898 L1252 1898 L1249 1897 L1245 1895 L1242 1893 L1240 1891 L1238 1888 L1236 1885 L1235 1882 L1235 1879 L1235 1875 L1236 1872 L1238 1869 L1240 1865 L1242 1861 L1244 1857 L1244 1854 L1245 1850 L1245 1847 L1244 1843 L1244 1840 L1244 1832 L1244 1828 L1244 1824 L1243 1820 L1242 1816 L1241 1813 L1240 1810 L1238 1806 L1237 1801 L1235 1798 L1230 1786 L1228 1782 L1225 1779 L1220 1775 L1217 1773 L1213 1772 L1207 1769 L1202 1766 L1199 1762 L1190 1747 L1185 1738 L1182 1733 L1180 1729 L1176 1726 L1172 1724 L1168 1722 L1165 1720 L1161 1718 L1159 1714 L1155 1708 L1150 1700 L1144 1688 L1142 1684 L1138 1678 L1133 1671 L1131 1668 L1129 1665 L1128 1661 L1125 1656 L1124 1652 L1123 1648 L1120 1642 L1118 1638 L1116 1634 L1113 1630 L1107 1625 L1099 1619 L1095 1617 L1089 1612 L1085 1609 L1081 1606 L1078 1602 L1076 1598 L1075 1593 L1073 1581 L1072 1576 L1070 1572 L1068 1568 L1065 1565 L1060 1561 L1056 1558 L1053 1556 L1050 1552 L1048 1549 L1047 1546 L1046 1542 L1046 1538 L1046 1534 L1046 1531 L1046 1526 L1045 1523 L1043 1518 L1039 1512 L1035 1508 L1031 1501 L1029 1498 L1025 1494 L1023 1490 L1020 1486 L1017 1483 L1014 1480 L1012 1477 L1009 1474 L1006 1471 L1004 1468 L1001 1466 L998 1463 L994 1461 L989 1457 L983 1454 L980 1451 L977 1449 L973 1445 L940 1412 L935 1407 L928 1400 L923 1396 L918 1390 L906 1379 L904 1377 L901 1373 L896 1369 L894 1368 L888 1367 L884 1367 L879 1368 L874 1371 L871 1373 L865 1377 L861 1380 L856 1383 L852 1385 L847 1386 L844 1387 L840 1387 L836 1386 L817 1383 L808 1381 L800 1380 L793 1378 L788 1378 L784 1376 L780 1375 L778 1374 L773 1371 L769 1369 L765 1367 L762 1366 L758 1365 L754 1364 L749 1362 L745 1359 L742 1356 L740 1353 L737 1347 L733 1341 L732 1339 L729 1335 L726 1332 L723 1329 L718 1327 L714 1325 L710 1324 L683 1316 L671 1313 L647 1306 L644 1305 L639 1303 L636 1300 L633 1297 L631 1293 L630 1290 L629 1281 L628 1276 L627 1271 L626 1267 L625 1263 L623 1261 L621 1258 L619 1256 L615 1254 L604 1248 L600 1246 L587 1238 L583 1235 L580 1233 L577 1229 L576 1225 L575 1222 L575 1219 L575 1214 L575 1210 L575 1196 L576 1188 L576 1183 L575 1179 L575 1174 L574 1170 L572 1165 L571 1161 L567 1153 L563 1147 L560 1142 L558 1140 L556 1137 L551 1133 L547 1129 L544 1125 L540 1119 L537 1116 L534 1114 L528 1109 L524 1106 L521 1104 L518 1104 L514 1100 L511 1099 L506 1100 L501 1102 L497 1104 L492 1108 L490 1110 L484 1116 L479 1121 L474 1125 L472 1127 L469 1128 L466 1127 L449 1109 L444 1103 L441 1100 L439 1098 L437 1095 L434 1093 L432 1091 L428 1087 L425 1085 L422 1082 L421 1079 L420 1075 L418 1071 L416 1068 L414 1064 L408 1067 L403 1071 L400 1073 L395 1077 L392 1079 L388 1083 L383 1087 L380 1089 L377 1091 L373 1093 L370 1095 L366 1096 L363 1096 L358 1096 L354 1096 L351 1095 L347 1093 L342 1090 L335 1086 L328 1082 L325 1080 L321 1079 L317 1078 L314 1077 L310 1077 L307 1077 L303 1078 L300 1080 L297 1081 L293 1083 L288 1086 L280 1090 L276 1092 L273 1094 L270 1094 L267 1092 L268 1089 L271 1087 L274 1087 L277 1090 L280 1096 L283 1100 L285 1104 L287 1106 L290 1109 L293 1111 L296 1112 L300 1114 L306 1116 L309 1118 L314 1119 L319 1121 L322 1123 L324 1125 L327 1128 L328 1131 L328 1134 L328 1139 L327 1142 L325 1145 L323 1148 L320 1150 L313 1160 L309 1164 L306 1168 L295 1181 L278 1202 L275 1205 L273 1208 L271 1211 L262 1224 L256 1235 L235 1281 L232 1290 L224 1309 L212 1332 L209 1336 L204 1345 L193 1359 L180 1372 L168 1383 L155 1392 L143 1399 L132 1404 L115 1412 L97 1420 L94 1422 L86 1424 L63 1436 L53 1442 L47 1447 L37 1455 L30 1462 L23 1471 L17 1478 L12 1486 L6 1500 L4 1504 L2 1509 L-1 1518 L-2 1522 L-4 1527 L-7 1534 L-11 1541 L-17 1552 L-21 1559 L-24 1565 L-29 1576 L-31 1581 L-34 1589 L-36 1597 L-38 1604 L-41 1615"/></circle></g></svg><p class="attr">지도 © OpenStreetMap 기여자</p></div>
+      <ol class="card legend" data-day="1"><li><span class="num">1</span><b>감나무식당</b><span class="tm">12:30</span></li><li><span class="num opt">2</span><b>숲속의 빈터 <span class="until">선택</span></b><span class="tm">식사 후</span></li><li><span class="num home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg></span><b>숙소 체크인</b><span class="tm">15:00</span></li><li><span class="num">3</span><b>낙산사</b><span class="tm">15:35</span></li><li><span class="num">4</span><b>속초관광수산시장</b><span class="tm">17:15</span></li><li><span class="num opt">5</span><b>만천홍게탕 <span class="until early">예비</span></b><span class="tm">18:30</span></li><li><span class="num home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg></span><b>숙소로</b><span class="tm">18:45</span></li></ol>
+      <ol class="card legend" data-day="2" hidden><li><span class="num home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg></span><b>숙소 체크아웃</b><span class="tm">10:00</span></li><li><span class="num">1</span><b>휴휴암쉼터 (옆 휴휴암)</b><span class="tm">11:00</span></li><li><span class="num">→</span><b>서울로</b><span class="tm">12:00</span></li></ol>
+    </section>
+  </div>
+
+  <section id="market" aria-labelledby="market-title">
+    <div class="head"><h2 id="market-title">속초 시장</h2><p>금요일 마감 시간 순</p></div>
+
+    <div class="group">
+      <p class="label">그 자리에서 먹을 것</p>
+      <ul class="list card shops">
+        <li class="shop"><img class="th" src="assets/places/1967427779.jpg" alt="속초신토불이감자옹심이" loading="lazy"><div><h4>속초신토불이감자옹심이</h4><p>들깨 감자옹심이, 감자전<br>앉아서 먹는 식당</p></div>
+          <div class="side"><span class="until early">19:00까지</span><a class="pill" href="https://m.place.naver.com/place/1967427779/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div></li>
+        <li class="shop"><img class="th" src="assets/places/1640645163.jpg" alt="태평양물회" loading="lazy"><div><h4>태평양물회</h4><p>가자미 물회<br>포장만 됨</p></div>
+          <div class="side"><span class="until">20:00까지</span><a class="pill" href="https://m.place.naver.com/place/1640645163/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div></li>
+        <li class="shop"><img class="th" src="assets/places/560470204.jpg" alt="황부자튀김" loading="lazy"><div><h4>황부자튀김</h4><p>누룽지 오징어순대, 새우튀김</p></div>
+          <div class="side"><span class="until">20:30까지</span><a class="pill" href="https://m.place.naver.com/place/560470204/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div></li>
+        <li class="shop"><img class="th" src="assets/places/15007436.jpg" alt="현태네튀김" loading="lazy"><div><h4>현태네튀김</h4><p>감자전, 오징어순대<br>주문 마감 20:30</p></div>
+          <div class="side"><span class="until">21:00까지</span><a class="pill" href="https://m.place.naver.com/place/15007436/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div></li>
+        <li class="shop"><img class="th" src="assets/places/1926584483.jpg" alt="속초새우아저씨" loading="lazy"><div><h4>속초새우아저씨</h4><p>계란물 오징어순대, 아바이순대, 새우튀김</p></div>
+          <div class="side"><span class="until">21:00까지</span><a class="pill" href="https://m.place.naver.com/place/1926584483/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div></li>
+        <li class="shop"><img class="th" src="assets/places/1534424564.jpg" alt="서민갑부 똑이네 튀김" loading="lazy"><div><h4>서민갑부 똑이네 튀김</h4><p>누룽지 오징어순대, 감자전, 왕새우튀김</p></div>
+          <div class="side"><span class="until">22:00까지</span><a class="pill" href="https://m.place.naver.com/place/1534424564/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div></li>
+        <li class="shop"><img class="th" src="assets/places/1212803734.jpg" alt="승기씨앗찹쌀호떡" loading="lazy"><div><h4>승기씨앗찹쌀호떡</h4><p>씨앗호떡</p></div>
+          <div class="side"><span class="until">시간 확인 필요</span><a class="pill" href="https://m.place.naver.com/place/1212803734/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div></li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <p class="label">사 갈 것</p>
+      <ul class="list card shops">
+        <li class="shop"><img class="th" src="assets/places/1732759357.jpg" alt="강원도막걸리술빵" loading="lazy"><div><h4>강원도막걸리술빵</h4><p>1개 5,000원<br>다음 날 아침용</p></div>
+          <div class="side"><span class="until early">19:00까지</span><a class="pill" href="https://m.place.naver.com/place/1732759357/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div></li>
+        <li class="shop"><img class="th" src="assets/places/1265789675.jpg" alt="속초과자집 바삭튀밥" loading="lazy"><div><h4>속초과자집 바삭튀밥</h4><p>오란다, 누룽지칩</p></div>
+          <div class="side"><span class="until early">19:00까지</span><a class="pill" href="https://m.place.naver.com/place/1265789675/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div></li>
+        <li class="shop"><img class="th" src="assets/places/36792824.jpg" alt="티각태각" loading="lazy"><div><h4>티각태각</h4><p>게튀각, 우엉 부각<br>한 봉지 1만 원</p></div>
+          <div class="side"><span class="until early">19:30까지</span><a class="pill" href="https://m.place.naver.com/place/36792824/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div></li>
+        <li class="shop"><img class="th" src="assets/places/1998955284.jpg" alt="이부자마약곳간" loading="lazy"><div><h4>이부자마약곳간</h4><p>곡물강정<br>8개 1만 원</p></div>
+          <div class="side"><span class="until early">19:30까지</span><a class="pill" href="https://m.place.naver.com/place/1998955284/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div></li>
+        <li class="shop"><img class="th" src="assets/places/1448630169.jpg" alt="청파반건조수산" loading="lazy"><div><h4>청파반건조수산</h4><p>반건조 생선, 젓갈<br>진공포장 해 줌</p></div>
+          <div class="side"><span class="until">20:00까지</span><a class="pill" href="https://m.place.naver.com/place/1448630169/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div></li>
+        <li class="shop"><img class="th" src="assets/places/1559931374.jpg" alt="속초딸기모찌" loading="lazy"><div><h4>속초딸기모찌</h4><p>과일 찹쌀떡</p></div>
+          <div class="side"><span class="until">21:00까지</span><a class="pill" href="https://m.place.naver.com/place/1559931374/home" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>지도</a></div></li>
+      </ul>
+    </div>
+    <p class="foot">영업시간은 11월 25일 기준</p>
+  </section>
+</div>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.seg a'));
+  function setOn(id){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+id)})}
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting)setOn(e.target.id)})
+  },{rootMargin:'-40% 0px -55% 0px'});
+  ['day1','day2','route','market'].forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+})();
+
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.seg-day button'));
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    var d=b.getAttribute('data-show');
+    btns.forEach(function(x){x.classList.toggle('on',x===b)});
+    [].forEach.call(document.querySelectorAll('#route [data-day]'),function(el){
+      if(el.getAttribute('data-day')===d){el.removeAttribute('hidden')}else{el.setAttribute('hidden','')}
+    });
+  })});
+})();
+
+(function(){
+  var map=document.querySelector('.map'); if(!map) return;
+  function play(){map.classList.remove('play'); void map.getBoundingClientRect(); map.classList.add('play');
+    try{map.setCurrentTime(0)}catch(e){}}
+  window.__playRoute=play;
+  if('IntersectionObserver' in window){
+    var seen=false;
+    new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!seen){seen=true;play()}})},{threshold:.35}).observe(map);
+  }
+  [].forEach.call(document.querySelectorAll('.seg-day button'),function(b){b.addEventListener('click',function(){play()})});
+})();
+</script>
+
+</body>
+</html>
